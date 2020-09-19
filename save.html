@@ -7,10 +7,7 @@
     </head>
     <body>
         
-        <button id='Rock' class='button'>Rock</button>
-        <button id='Paper' class='button'>Paper</button>
-        <button id='Scissor' class='button'>Scissor</button>
-        <div id='container'></div>
+
     <script>
 
 
@@ -30,7 +27,13 @@
         return computerChoice;
         }
 
-         function playRound(playerSelection, computerSelection)
+        
+
+      // const playerSelection = 'Rock';
+        
+     
+
+        function playRound(playerSelection, computerSelection)
         {              
             
             if (playerSelection == 'Rock' && computerSelection == 'Rock')
@@ -100,85 +103,45 @@
                 console.log('The computer Won')
             }
         }
-      
-       
-        let draw = document.createElement('p');
-        draw.textContent =' It\'s a Draw !';
-        let youWon = document.createElement('p');
-        youWon.textContent = 'You won';
 
-        let computerWon =document.createElement('p');
-        computerWon.textContent = 'The computer won';
 
-        let yourScore = document.createElement('p');
-        
 
-        let heScore = document.createElement('p');
-        
-
-      function game()
+        function game()
         {
-           
-           for(let i = 0; i < 5 ; i++)
+            
+            for(let i = 0; i < 5 ; i++)
             {
-                if(playerScore == 5 && playerScore>computerScore)
-                    {
-                        container.textContent ='You won the game, the computer lost';
-                    }
-                    else if (computerScore == 5 && computerScore >playerScore)
-                    {
-                        container.textContent ='You lost the game, the computer won';
-                    }
+                
+                let playerSelection = prompt("Please enter 'Rock' , 'Paper' or 'Scissor' : ");
+
+                console.log(playRound(playerSelection,computerPlay()));
+                console.log('Your score is :',playerScore);
+                console.log('The computer score is ', computerScore);            
             }
                 
+            if(i=5)
+               {
             
-                   
-                     
+               if(playerScore>computerScore)
+                {
+                    console.log('You won the game, the computer lost')
+                }
+                else if (playerScore < computerScore)
+                {
+                    console.log('You lost the game, the computer won')
+                } else if (playerScore == computerScore)
+                    {
+                        console.log('It\'s a draw')
+                    }
+                }       
                      
         }
 
-        let Rock = document.querySelector('#Rock');
-            Rock.addEventListener('click',() => {
-                container.innerText = playRound('Rock',computerPlay());
-                container.appendChild(yourScore);
-                container.appendChild(heScore);
-                yourScore.textContent = `'Your score is :' ${[playerScore]}`;
-                heScore.textContent = `'The computer score is :' ${[computerScore]}`;
-                results.textContent = `${results}`;
-                game();
-                
-            });
-            let Paper = document.querySelector('#Paper');
-            Paper.addEventListener('click',() => {
-                container.innerText = playRound('Paper',computerPlay());             // console.log(playRound('Paper',computerPlay())); 
-                container.appendChild(yourScore);
-                container.appendChild(heScore);
-                yourScore.textContent = `'Your score is :' ${[playerScore]}`;
-                heScore.textContent = `'The computer score is :' ${[computerScore]}`;
-                game();
-                
-            });
-            let Scissor = document.querySelector('#Scissor');
-            Scissor.addEventListener('click',() => {
-                container.innerText = playRound('Scissor',computerPlay());
-                container.appendChild(yourScore);
-                container.appendChild(heScore);
-                yourScore.textContent = `'Your score is :' ${[playerScore]}`;
-                heScore.textContent = `'The computer score is :' ${[computerScore]}`;
-                game();
-                
-            });
-
-
-
-                          
-       
+        game();
+        
        // It ends here
 
     </script>
 
     </body>
 </html>
-
-
-
